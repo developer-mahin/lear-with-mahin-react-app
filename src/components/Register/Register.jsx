@@ -7,19 +7,25 @@ import { AuthContext } from "../../context/AuthProvider";
 
 const Register = () => {
 
-  const {createAccount, user} = useContext(AuthContext)
+  const {createAccount, updateNameAndPhoto} = useContext(AuthContext)
 
   const handleRegister = (e)=>{
     e.preventDefault()
     const form = e.target
     const email = form.email.value;
     const password = form.password.value
-
+    const name = form.name.value
+    const photoURL = form.photoURL.value
 
     createAccount(email, password)
     .then((result)=>{
       const user = result.user
       console.log(user)
+      updateNameAndPhoto(name, photoURL)
+      .then(()=>{})
+      .catch((error)=>{
+        console.error(error)
+      })
     })
     .catch((error)=>{
       console.error(error)
@@ -72,7 +78,7 @@ const Register = () => {
             <input
               className="form-input w-full border-2 rounded py-1 px-2"
               type="text"
-              name="PhotoURL"
+              name="photoURL"
               placeholder="Drop your photoURL"
               required
             />

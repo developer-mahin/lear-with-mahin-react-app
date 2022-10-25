@@ -3,21 +3,32 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  updateProfile
 } from "firebase/auth";
 import app from "../Firebase/firebase.config";
 import { createContext } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 
+const auth = getAuth(app);
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const auth = getAuth(app);
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({});
+  // const [loading, setLoading] = useState(true);
 
   const createAccount = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
+
+  const updateNameAndPhoto= (name, photoURL)=>{
+    return updateProfile(auth.currentUser,{
+      displayName: name,
+      photoURL: photoURL
+    })
+  }
+
+
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -28,7 +39,7 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  const authInfo = { user, createAccount };
+  const authInfo = { user, createAccount, updateNameAndPhoto };
 
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
