@@ -23,6 +23,9 @@ const router = createBrowserRouter([
             },
             {
                 path: '/Courses',
+                loader:()=>{
+                    return fetch("https://learn-with-mahin-server.vercel.app/courses")
+                },
                 element: <Course></Course>
             },
             {

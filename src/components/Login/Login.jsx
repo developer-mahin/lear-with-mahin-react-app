@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 import { useState } from "react";
 
 const Login = () => {
-  const { loginSystem } = useContext(AuthContext);
-  const [error, setError] = useState("")
+  const { loginSystem, googleSignIn, gitHubSignIn } = useContext(AuthContext);
+  const [error, setError] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -19,13 +19,37 @@ const Login = () => {
     loginSystem(email, password)
       .then((result) => {
         const user = result.user;
-        toast.success('Successfully login!')
-        form.reset()
+        toast.success("Successfully login!");
+        form.reset();
+        setError("");
+      })
+      .catch((error) => {
+        setError(error.message);
+        console.error(error);
+      });
+  };
+
+  // login with google
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.currentUser;
         setError("")
       })
       .catch((error) => {
-        setError(error.message)
-        console.error(error);
+        setError(error.message);
+      });
+  };
+
+  // login with github
+  const handleGitHubSignIn = () => {
+    gitHubSignIn()
+      .then((result) => {
+        const user = result.currentUser;
+        setError("")
+      })
+      .catch((error) => {
+        setError(error.message);
       });
   };
 
@@ -81,7 +105,10 @@ const Login = () => {
               </span>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <Link className="py-3 btn btn-icon btn-google">
+              <Link
+                onClick={handleGoogleSignIn}
+                className="py-3 btn btn-icon btn-google"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -94,7 +121,10 @@ const Login = () => {
                 </svg>
                 <span className="sr-only">Continue with</span> Google
               </Link>
-              <Link className="py-3 btn btn-icon btn-dark">
+              <Link
+                onClick={handleGitHubSignIn}
+                className="py-3 btn btn-icon btn-dark"
+              >
                 <span className="sr-only">Continue with</span>
                 <FaGithub className="mx-1 text-xl"></FaGithub> GitHub
               </Link>

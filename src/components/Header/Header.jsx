@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaSun, FaUserAlt } from "react-icons/fa";
+import { FaSun, FaUserAlt, FaMoon } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 
@@ -8,12 +8,12 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logOutSystem } = useContext(AuthContext);
 
-  const handleLogOut = () =>{
-    logOutSystem()
-  }
+  const handleLogOut = () => {
+    logOutSystem();
+  };
 
   return (
-    <div>
+    <div className="border-b-2">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <Link
@@ -38,7 +38,7 @@ const Header = () => {
               <rect x="14" y="11" width="7" height="12" />
             </svg>
             <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-              Company
+              Learn With Mahin
             </span>
           </Link>
           <ul className="flex items-center hidden space-x-8 lg:flex">
@@ -87,16 +87,23 @@ const Header = () => {
                 aria-label="About us"
                 title="About us"
                 className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-              >
-                <FaSun />
-              </Link>
+              ></Link>
+            </li>
+            <li>
+              <p className="flex gap-1">
+                <FaSun className="cursor-pointer" />
+                <FaMoon className="cursor-pointer" ></FaMoon>
+              </p>
             </li>
           </ul>
           <ul className="flex items-center hidden space-x-8 lg:flex">
             <li className="bg-cyan-500 hover:bg-cyan-600 rounded">
               {user?.uid ? (
                 <>
-                  <button onClick={handleLogOut} className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md focus:shadow-outline focus:outline-none">
+                  <button
+                    onClick={handleLogOut}
+                    className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md focus:shadow-outline focus:outline-none"
+                  >
                     Log Out
                   </button>
                 </>
@@ -118,7 +125,7 @@ const Header = () => {
                 <>
                   <Link>
                     <img
-                      title={user?.email}
+                      title={user?.displayName}
                       className="w-9 h-9 rounded-full"
                       src={user?.photoURL}
                       alt=""
@@ -248,7 +255,10 @@ const Header = () => {
                       <li className="bg-teal-500 hover:bg-teal-700">
                         {user?.uid ? (
                           <>
-                            <button onClick={handleLogOut} className="inline-flex w-1/2 items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md focus:shadow-outline focus:outline-none">
+                            <button
+                              onClick={handleLogOut}
+                              className="inline-flex w-1/2 items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md focus:shadow-outline focus:outline-none"
+                            >
                               Log Out
                             </button>
                           </>
@@ -269,7 +279,11 @@ const Header = () => {
                         <li>
                           {user?.uid ? (
                             <>
-                              <img src={user?.photoURL} alt="" />
+                              <img
+                                title={user.displayName}
+                                src={user?.photoURL}
+                                alt=""
+                              />
                             </>
                           ) : (
                             <>

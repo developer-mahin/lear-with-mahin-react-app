@@ -42,6 +42,7 @@ const Register = () => {
     googleSignIn()
       .then((result) => {
         const user = result.currentUser;
+        setError("")
       })
       .catch((error) => {
         setError(error.message);
@@ -53,6 +54,7 @@ const Register = () => {
     gitHubSignIn()
       .then((result) => {
         const user = result.currentUser;
+        setError("")
       })
       .catch((error) => {
         setError(error.message);
@@ -82,7 +84,7 @@ const Register = () => {
             </svg>
             Continue with Google
           </Link>
-          <Link href="#" className="w-full py-3 btn btn-icon btn-dark">
+          <Link onClick={handleGitHubSignIn} className="w-full py-3 btn btn-icon btn-dark">
             <FaGithub className="mx-1 text-xl"></FaGithub>
             Continue with GitHub
           </Link>
