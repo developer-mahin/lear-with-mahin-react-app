@@ -1,37 +1,63 @@
 import React from "react";
 import { useContext } from "react";
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
-
+import toast from "react-hot-toast";
+import { useState } from "react";
 
 const Register = () => {
+  const { createAccount, updateNameAndPhoto, googleSignIn, gitHubSignIn } =
+    useContext(AuthContext);
+  const [error, setError] = useState("");
 
-  const {createAccount, updateNameAndPhoto} = useContext(AuthContext)
-
-  const handleRegister = (e)=>{
-    e.preventDefault()
-    const form = e.target
+  // Register with email and password
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
     const email = form.email.value;
-    const password = form.password.value
-    const name = form.name.value
-    const photoURL = form.photoURL.value
+    const password = form.password.value;
+    const name = form.name.value;
+    const photoURL = form.photoURL.value;
 
     createAccount(email, password)
-    .then((result)=>{
-      const user = result.user
-      console.log(user)
-      updateNameAndPhoto(name, photoURL)
-      .then(()=>{})
-      .catch((error)=>{
-        console.error(error)
+      .then((result) => {
+        const user = result.user;
+        updateNameAndPhoto(name, photoURL);
+        toast.success("Successfully registered!");
+        form.reset();
+        setError("")
+          .then(() => {})
+          .catch((error) => {
+            setError(error.message);
+          });
       })
-    })
-    .catch((error)=>{
-      console.error(error)
-    })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
 
-  }
+  // login with google
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.currentUser;
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
+
+  // login with github
+  const handleGitHubSignIn = () => {
+    gitHubSignIn()
+      .then((result) => {
+        const user = result.currentUser;
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
 
   return (
     <section className="px-4 py-4 mx-auto max-w-7xl">
@@ -40,7 +66,10 @@ const Register = () => {
           Sign up
         </h1>
         <div className="pb-6 space-y-2 border-b border-gray-200">
-          <Link className="w-full py-3 btn btn-icon btn-google bg-blue-700 hover:bg-blue-600 border-0">
+          <Link
+            onClick={handleGoogleSignIn}
+            className="w-full py-3 btn btn-icon btn-google bg-blue-700 hover:bg-blue-600 border-0"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -107,15 +136,18 @@ const Register = () => {
               required
             />
           </label>
-          {/* <input
-            type="submit"
-            className="w-full btn btn-primary"
-            value="Sign Up"
-          /> */}
-          <button type="submit" className="w-full btn btn-primary">Sign up</button>
+          <button type="submit" className="w-full btn btn-primary">
+            Sign up
+          </button>
+          <p className="text-red-600">{error}</p>
         </form>
         <p className="my-8 text-xs font-medium text-center text-gray-700">
-            <span>Already have an account? <Link to="/login" className="text-blue-700 hover:underline">Login</Link></span>
+          <span>
+            Already have an account?{" "}
+            <Link to="/login" className="text-blue-700 hover:underline">
+              Login
+            </Link>
+          </span>
         </p>
       </div>
     </section>

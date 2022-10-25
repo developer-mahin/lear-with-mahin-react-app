@@ -1,8 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
+import toast from 'react-hot-toast';
+import { useState } from "react";
 
 const Login = () => {
+  const { loginSystem } = useContext(AuthContext);
+  const [error, setError] = useState("")
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    loginSystem(email, password)
+      .then((result) => {
+        const user = result.user;
+        toast.success('Successfully login!')
+        form.reset()
+        setError("")
+      })
+      .catch((error) => {
+        setError(error.message)
+        console.error(error);
+      });
+  };
+
   return (
     <section className="">
       <div className="px-0 mx-auto max-w-7xl sm:px-4">
@@ -10,7 +36,7 @@ const Login = () => {
           <h1 className="mb-4 text-lg font-semibold text-left text-gray-900">
             Log in to your account
           </h1>
-          <form className="mb-8 space-y-4">
+          <form onSubmit={handleLogin} className="mb-8 space-y-4">
             <label className="block">
               <span className="block mb-1 text-xs font-medium text-gray-700">
                 Your Email
@@ -18,7 +44,7 @@ const Login = () => {
               <input
                 className="form-input w-full border-2 rounded py-1 px-2"
                 type="email"
-                placeholder="Ex. james@bond.com"
+                placeholder="Please enter email"
                 name="email"
                 required
               />
@@ -40,6 +66,7 @@ const Login = () => {
               className="w-full py-3 mt-1 btn btn-primary"
               value="Login"
             />
+            <p className="text-red-600">{error}</p>
           </form>
           <div className="space-y-8">
             <div

@@ -6,7 +6,11 @@ import { AuthContext } from "../../context/AuthProvider";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user } = useContext(AuthContext);
+  const { user, logOutSystem } = useContext(AuthContext);
+
+  const handleLogOut = () =>{
+    logOutSystem()
+  }
 
   return (
     <div>
@@ -92,7 +96,7 @@ const Header = () => {
             <li className="bg-cyan-500 hover:bg-cyan-600 rounded">
               {user?.uid ? (
                 <>
-                  <button className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md focus:shadow-outline focus:outline-none">
+                  <button onClick={handleLogOut} className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md focus:shadow-outline focus:outline-none">
                     Log Out
                   </button>
                 </>
@@ -244,7 +248,7 @@ const Header = () => {
                       <li className="bg-teal-500 hover:bg-teal-700">
                         {user?.uid ? (
                           <>
-                            <button className="inline-flex w-1/2 items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md focus:shadow-outline focus:outline-none">
+                            <button onClick={handleLogOut} className="inline-flex w-1/2 items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md focus:shadow-outline focus:outline-none">
                               Log Out
                             </button>
                           </>
