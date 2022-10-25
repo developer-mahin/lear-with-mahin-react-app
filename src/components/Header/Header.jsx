@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaSun } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user } = useContext(AuthContext);
+  console.log(user);
   return (
     <div>
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -45,12 +50,12 @@ const Header = () => {
             </li>
             <li>
               <Link
-                to="/course"
+                to="/courses"
                 aria-label="Our product"
                 title="Our product"
                 className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
-                Course
+                Courses
               </Link>
             </li>
             <li>
@@ -73,17 +78,36 @@ const Header = () => {
                 About us
               </Link>
             </li>
-          </ul>
-          <ul className="flex items-center hidden space-x-8 lg:flex">
             <li>
               <Link
-                to="/login"
-                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                aria-label="Sign up"
-                title="Sign up"
+                aria-label="About us"
+                title="About us"
+                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
-                Login
+                <FaSun />
               </Link>
+            </li>
+          </ul>
+          <ul className="flex items-center hidden space-x-8 lg:flex">
+            <li className="bg-cyan-500 hover:bg-cyan-600 rounded">
+              {user.uid ? (
+                <>
+                  <button className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md focus:shadow-outline focus:outline-none">
+                    Log Out
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/login"
+                    className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md focus:shadow-outline focus:outline-none"
+                    aria-label="Sign up"
+                    title="Sign up"
+                  >
+                    Login
+                  </Link>
+                </>
+              )}
             </li>
           </ul>
           <div className="lg:hidden">
@@ -159,32 +183,32 @@ const Header = () => {
                     <ul className="space-y-4">
                       <li>
                         <Link
-                          to="/"
+                          to="/home"
                           aria-label="Our product"
                           title="Our product"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
-                          Product
+                          Home
                         </Link>
                       </li>
                       <li>
                         <Link
-                          to="/"
+                          to="/courses"
                           aria-label="Our product"
                           title="Our product"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
-                          Features
+                          Courses
                         </Link>
                       </li>
                       <li>
                         <Link
-                          to="/"
+                          to="/blog"
                           aria-label="Product pricing"
                           title="Product pricing"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
-                          Pricing
+                          Blog
                         </Link>
                       </li>
                       <li>
@@ -197,15 +221,25 @@ const Header = () => {
                           About us
                         </Link>
                       </li>
-                      <li>
-                        <Link
-                          to="/"
-                          className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                          aria-label="Sign up"
-                          title="Sign up"
-                        >
-                          Sign up
-                        </Link>
+                      <li className="bg-teal-500 hover:bg-teal-700">
+                        {user.uid ? (
+                          <>
+                            <button className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md focus:shadow-outline focus:outline-none">
+                              Log Out
+                            </button>
+                          </>
+                        ) : (
+                          <>
+                            <Link
+                              to="/login"
+                              className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md focus:shadow-outline focus:outline-none"
+                              aria-label="Sign up"
+                              title="Sign up"
+                            >
+                              Login
+                            </Link>
+                          </>
+                        )}
                       </li>
                     </ul>
                   </nav>
