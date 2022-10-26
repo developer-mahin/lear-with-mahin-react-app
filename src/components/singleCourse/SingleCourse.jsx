@@ -14,7 +14,13 @@ const SingleCourse = ({ course }) => {
         {description && (
           <>
             {" "}
-            {description.slice(0,90) + "..."} <Link className="text-blue-700 hover:underline" to="">Reade More</Link>{" "}
+            {description.slice(0, 90) + "..."}{" "}
+            <Link
+              to={`/courses/${course._id}`}
+              className="text-blue-700 hover:underline"
+            >
+              Reade More
+            </Link>{" "}
           </>
         )}{" "}
       </p>
