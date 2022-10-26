@@ -99,7 +99,7 @@ const Blog = () => {
             </p>
             <p className="text-2xl font-bold leading-5">What is Node?</p>
             <p className="mb-4 text-gray-700">
-              <ol>
+              <ul>
                 <li className="list-disc list-inside">
                   Node.js is an open source server environment
                 </li>
@@ -111,7 +111,7 @@ const Blog = () => {
                 <li className="list-disc list-inside">
                   Node.js uses JavaScript on the server
                 </li>
-              </ol>
+              </ul>
             </p>
             <p className="text-2xl font-bold leading-5">How does Node work?</p>
             <p className="mb-4 text-gray-700">

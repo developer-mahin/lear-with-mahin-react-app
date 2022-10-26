@@ -74,12 +74,12 @@ const Header = () => {
             </li>
             <li>
               <Link
-                to="/about"
+                to="/faq"
                 aria-label="About us"
                 title="About us"
                 className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
-                About us
+                FAQ
               </Link>
             </li>
             <li>
@@ -92,17 +92,17 @@ const Header = () => {
             <li>
               <p className="flex gap-1">
                 <FaSun className="cursor-pointer" />
-                <FaMoon className="cursor-pointer" ></FaMoon>
+                <FaMoon className="cursor-pointer"></FaMoon>
               </p>
             </li>
           </ul>
           <ul className="flex items-center hidden space-x-8 lg:flex">
-            <li className="bg-cyan-500 hover:bg-cyan-600 rounded">
+            <li className="">
               {user?.uid ? (
                 <>
                   <button
                     onClick={handleLogOut}
-                    className="inline-flex  rounded items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 shadow-md focus:shadow-outline focus:outline-none"
+                    className="inline-flex bg-cyan-500 hover:bg-cyan-600 rounded-full items-center justify-center py-2 px-6 font-medium tracking-wide transition duration-200 shadow-md focus:shadow-outline focus:outline-none"
                   >
                     Log Out
                   </button>
@@ -111,11 +111,19 @@ const Header = () => {
                 <>
                   <Link
                     to="/login"
-                    className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md focus:shadow-outline focus:outline-none"
+                    className="inline-flex items-center justify-center py-2 px-6 font-medium tracking-wide transition duration-200 shadow-md bg-cyan-500 hover:bg-cyan-600 rounded-full focus:shadow-outline focus:outline-none mr-1"
                     aria-label="Sign up"
                     title="Sign up"
                   >
                     Login
+                  </Link>
+                  <Link
+                    to="/register"
+                    className="inline-flex items-center justify-center py-2 px-6 font-medium tracking-wide transition duration-200 rounded-full shadow-md  bg-cyan-500 hover:bg-cyan-600 focus:shadow-outline focus:outline-none ml-3"
+                    aria-label="Sign up"
+                    title="Sign up"
+                  >
+                    Register
                   </Link>
                 </>
               )}
@@ -135,7 +143,13 @@ const Header = () => {
               ) : (
                 <>
                   <Link>
-                    <FaUserAlt></FaUserAlt>
+                    {/* <FaUserAlt></FaUserAlt>
+                     */}
+                    <img
+                      src="https://cdn.pixabay.com/photo/2016/11/18/23/38/child-1837375__340.png"
+                      className="w-10 h-10 rounded-full"
+                      alt=""
+                    />
                   </Link>
                 </>
               )}
@@ -244,43 +258,52 @@ const Header = () => {
                       </li>
                       <li>
                         <Link
-                          to="/"
+                          to="/faq"
                           aria-label="About us"
                           title="About us"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
-                          About us
+                          FAQ
                         </Link>
                       </li>
-                      <li className="bg-teal-500 hover:bg-teal-700 rounded w-1/3">
-                        {user?.uid ? (
-                          <>
-                            <button
-                              onClick={handleLogOut}
-                              className="inline-flex w-full rounded-xl items-center justify-center py-2 font-medium tracking-wide transition duration-200 shadow-md focus:shadow-outline focus:outline-none "
-                            >
-                              Log Out
-                            </button>
-                          </>
-                        ) : (
-                          <>
-                            <Link
-                              to="/login"
-                              className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md focus:shadow-outline focus:outline-none"
-                              aria-label="Sign up"
-                              title="Sign up"
-                            >
-                              Login
-                            </Link>
-                          </>
-                        )}
-                      </li>
-                      <li>
+
+                      <div className="flex justify-between items-center">
+                        <li className="w-1/2">
+                          {user?.uid ? (
+                            <>
+                              <button
+                                onClick={handleLogOut}
+                                className="inline-flex bg-teal-500 hover:bg-teal-700 w-full rounded-full items-center justify-center py-2 px-6 font-medium tracking-wide transition duration-200 shadow-md focus:shadow-outline focus:outline-none "
+                              >
+                                Log Out
+                              </button>
+                            </>
+                          ) : (
+                            <>
+                              <Link
+                                to="/login"
+                                className="inline-flex items-center justify-center py-2 px-6 font-medium tracking-wide bg-teal-500 hover:bg-teal-700 rounded-full transition duration-200 shadow-md focus:shadow-outline focus:outline-none"
+                                aria-label="Sign up"
+                                title="Sign up"
+                              >
+                                Login
+                              </Link>
+                              <Link
+                                to="/register"
+                                className="inline-flex items-center justify-center py-2 bg-teal-500 hover:bg-teal-700 mt-2 px-6 font-medium tracking-wide transition duration-200 rounded-full shadow-md focus:shadow-outline focus:outline-none"
+                                aria-label="Sign up"
+                                title="Sign up"
+                              >
+                                Register
+                              </Link>
+                            </>
+                          )}
+                        </li>
                         <li>
                           {user?.uid ? (
                             <>
                               <img
-                              className="w-9 h-9 rounded-full"
+                                className="w-9 h-9 rounded-full"
                                 title={user.displayName}
                                 src={user?.photoURL}
                                 alt=""
@@ -289,12 +312,16 @@ const Header = () => {
                           ) : (
                             <>
                               <Link>
-                                <FaUserAlt></FaUserAlt>
+                                <img
+                                  src="https://cdn.pixabay.com/photo/2016/11/18/23/38/child-1837375__340.png"
+                                  className="w-10 h-10 rounded-full"
+                                  alt=""
+                                />
                               </Link>
                             </>
                           )}
                         </li>
-                      </li>
+                      </div>
                     </ul>
                   </nav>
                 </div>

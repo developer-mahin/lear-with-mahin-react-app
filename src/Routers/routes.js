@@ -9,6 +9,7 @@ import Register from '../components/Register/Register';
 import Main from '../layout/Main';
 import PrivateRoutes from './PrivateRoutes';
 import GetPremium from '../components/GetPremium/GetPremium';
+import Faq from '../components/FAQ/Faq';
 
 const router = createBrowserRouter([
     {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path:'/faq',
+                element:<Faq></Faq>
             }
 
         ]

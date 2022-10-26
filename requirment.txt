@@ -35,17 +35,17 @@ You have to create a website to provide a quality learning platform in the domai
 
 1. Display errors when the user's email address or password doesn't match. (✅)
 
-1. Clicking "Blog" will redirect to a public route. That route will have 4 questions & answers. 
+1. Clicking "Blog" will redirect to a public route. That route will have 4 questions & answers. (✅)
     
-    4.1 what is `cors`?
+    4.1 what is `cors`?(✅)
     
-    4.2 Why are you using `firebase`? What other options do you have to implement authentication?
+    4.2 Why are you using `firebase`? What other options do you have to implement authentication?(✅)
 
-    4.3 How does the private route work?
+    4.3 How does the private route work?(✅)
     
-    4.4 What is Node? How does Node work?
+    4.4 What is Node? How does Node work?(✅)
 
-1. (client-side repo) Meaningful readme.md file containing your website name and link to your live site. And at least five bullet points mentioning your website's different features and functionality. And a list of technologies (frameworks, libraries) used in your project. (added a meaningful readme.md file for the server-side repo is optional)
+1. (client-side repo) Meaningful readme.md file containing your website name and link to your live site. And at least five bullet points mentioning your website's different features and functionality. And a list of technologies (frameworks, libraries) used in your project. (added a meaningful readme.md file for the server-side repo is optional) 
 
 1. Create a 404 page. (✅)
 
