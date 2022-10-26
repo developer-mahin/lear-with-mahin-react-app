@@ -1,12 +1,12 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import Pdf from "react-to-pdf";
+import ReactToPdf from "react-to-pdf";
 import { FaDownload } from "react-icons/fa";
 
 const CourseDetails = () => {
   const coursesId = useLoaderData();
   const ref = React.createRef();
-  const { picture, title, description } = coursesId;
+  const { picture, title, description, _id } = coursesId;
 
   return (
     <div className="py-8">
@@ -16,25 +16,32 @@ const CourseDetails = () => {
         </div>
         <h6 className="mb-4 text-2xl font-semibold leading-5">{title}</h6>
         <p className="text-gray-700">{description}</p>
-        <Link className="btn btn-outline btn-success my-2">
-          Get premium access
-        </Link>
-        <div>
-          <Pdf targetRef={ref} filename="code-example.pdf">
-            {({ toPdf }) => (
-              <button
-                className="btn btn-outline btn-success my-2"
-                onClick={toPdf}
-              >
-                Download PDF <FaDownload className="mx-1"></FaDownload>
-              </button>
-            )}
-          </Pdf>
-
-          <div className="" ref={ref}>
-            <h1>Hello CodeSandbox</h1>
-            <h2>Start editing to see some magic happen!</h2>
+        <div className="flex justify-between items-center mt-1 lg:mt-5">
+          <div>
+            <Link
+              to={`/getPremium/${_id}`}
+              className="btn btn-outline btn-success my-2"
+            >
+              Get premium access
+            </Link>
           </div>
+
+          <div>
+            <ReactToPdf targetRef={ref} filename="div-blue.pdf">
+              {({ toPdf }) => (
+                <button
+                  className="btn btn-outline btn-success my-2"
+                  onClick={toPdf}
+                >
+                  Generate pdf <FaDownload></FaDownload>
+                </button>
+              )}
+            </ReactToPdf>
+            <div ref={ref}>
+              <img className="invisible" src="" alt="" />
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

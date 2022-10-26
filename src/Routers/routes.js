@@ -1,4 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
+import AddToCart from '../components/AddToCart/AddToCart';
 import Blog from '../components/Blog/Blog';
 import Course from '../components/Course/Course';
 import CourseDetails from '../components/CourseDetails/CourseDetails';
@@ -36,6 +37,13 @@ const router = createBrowserRouter([
                     return fetch(`https://learn-with-mahin-server.vercel.app/courses/${params.id}`)
                 },
                 element: <PrivateRoutes><CourseDetails></CourseDetails>,</PrivateRoutes>
+            },
+            {
+                path: '/getPremium/:id',
+                loader: ({ params }) => {
+                    return fetch(`https://learn-with-mahin-server.vercel.app/cart/${params.id}`)
+                },
+                element: <AddToCart></AddToCart>
             },
             {
                 path: '/login',
