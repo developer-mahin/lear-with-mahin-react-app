@@ -24,8 +24,8 @@ const Login = () => {
         const user = result.user;
         toast.success("Successfully login!");
         form.reset();
-        setError("");
         navigate(from, {replace:true})
+        setError("");
       })
       .catch((error) => {
         setError(error.message);
@@ -38,6 +38,7 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         const user = result.currentUser;
+        navigate(from, {replace:true})
         setError("")
       })
       .catch((error) => {
@@ -50,6 +51,7 @@ const Login = () => {
     gitHubSignIn()
       .then((result) => {
         const user = result.currentUser;
+        navigate(from, {replace:true})
         setError("")
       })
       .catch((error) => {

@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { FaGithub } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import toast from "react-hot-toast";
 import { useState } from "react";
@@ -10,6 +10,11 @@ const Register = () => {
   const { createAccount, updateNameAndPhoto, googleSignIn, gitHubSignIn } =
     useContext(AuthContext);
   const [error, setError] = useState("");
+  const navigate  = useNavigate()
+  const location = useLocation()
+  const from = location?.state?.from?.pathname || "/"
+
+
 
   // Register with email and password
   const handleRegister = (e) => {
@@ -23,9 +28,11 @@ const Register = () => {
     createAccount(email, password)
       .then((result) => {
         const user = result.user;
+        // update username and photo 
         updateNameAndPhoto(name, photoURL);
         toast.success("Successfully registered!");
         form.reset();
+        navigate(from, {replace:true})
         setError("")
           .then(() => {})
           .catch((error) => {
@@ -42,6 +49,7 @@ const Register = () => {
     googleSignIn()
       .then((result) => {
         const user = result.currentUser;
+        navigate(from, {replace:true})
         setError("")
       })
       .catch((error) => {
@@ -54,6 +62,7 @@ const Register = () => {
     gitHubSignIn()
       .then((result) => {
         const user = result.currentUser;
+        navigate(from, {replace:true})
         setError("")
       })
       .catch((error) => {

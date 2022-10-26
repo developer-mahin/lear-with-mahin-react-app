@@ -10,7 +10,7 @@ const CourseDetails = () => {
 
   return (
     <div className="py-8">
-      <div className="w-1/2 mx-auto border-2 p-2 rounded">
+      <div className="lg:w-1/2 mx-auto border-2 p-2 rounded">
         <div className="flex items-center justify-center mb-4 rounded-full bg-indigo-50">
           <img src={picture} alt="" />
         </div>

@@ -102,7 +102,7 @@ const Header = () => {
                 <>
                   <button
                     onClick={handleLogOut}
-                    className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md focus:shadow-outline focus:outline-none"
+                    className="inline-flex  rounded items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 shadow-md focus:shadow-outline focus:outline-none"
                   >
                     Log Out
                   </button>
@@ -164,7 +164,7 @@ const Header = () => {
               </svg>
             </button>
             {isMenuOpen && (
-              <div className="absolute top-0 left-0 w-full">
+              <div className="absolute top-0 left-0 w-full z-40">
                 <div className="p-5 bg-white border rounded shadow-sm">
                   <div className="flex items-center justify-between mb-4">
                     <div>
@@ -190,7 +190,7 @@ const Header = () => {
                           <rect x="14" y="11" width="7" height="12" />
                         </svg>
                         <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                          Company
+                          Learn-With-Mahin
                         </span>
                       </Link>
                     </div>
@@ -252,12 +252,12 @@ const Header = () => {
                           About us
                         </Link>
                       </li>
-                      <li className="bg-teal-500 hover:bg-teal-700">
+                      <li className="bg-teal-500 hover:bg-teal-700 rounded w-1/3">
                         {user?.uid ? (
                           <>
                             <button
                               onClick={handleLogOut}
-                              className="inline-flex w-1/2 items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md focus:shadow-outline focus:outline-none"
+                              className="inline-flex w-full rounded-xl items-center justify-center py-2 font-medium tracking-wide transition duration-200 shadow-md focus:shadow-outline focus:outline-none "
                             >
                               Log Out
                             </button>
@@ -280,6 +280,7 @@ const Header = () => {
                           {user?.uid ? (
                             <>
                               <img
+                              className="w-9 h-9 rounded-full"
                                 title={user.displayName}
                                 src={user?.photoURL}
                                 alt=""

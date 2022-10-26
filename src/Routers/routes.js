@@ -1,5 +1,4 @@
 import { createBrowserRouter } from 'react-router-dom'
-import AddToCart from '../components/AddToCart/AddToCart';
 import Blog from '../components/Blog/Blog';
 import Course from '../components/Course/Course';
 import CourseDetails from '../components/CourseDetails/CourseDetails';
@@ -9,6 +8,7 @@ import Login from '../components/Login/Login';
 import Register from '../components/Register/Register';
 import Main from '../layout/Main';
 import PrivateRoutes from './PrivateRoutes';
+import GetPremium from '../components/GetPremium/GetPremium';
 
 const router = createBrowserRouter([
     {
@@ -36,14 +36,14 @@ const router = createBrowserRouter([
                 loader: ({ params }) => {
                     return fetch(`https://learn-with-mahin-server.vercel.app/courses/${params.id}`)
                 },
-                element: <PrivateRoutes><CourseDetails></CourseDetails>,</PrivateRoutes>
+                element: <CourseDetails></CourseDetails>
             },
             {
                 path: '/getPremium/:id',
                 loader: ({ params }) => {
-                    return fetch(`https://learn-with-mahin-server.vercel.app/cart/${params.id}`)
+                    return fetch(`https://learn-with-mahin-server.vercel.app/getPremium/${params.id}`)
                 },
-                element: <AddToCart></AddToCart>
+                element: <PrivateRoutes><GetPremium></GetPremium></PrivateRoutes>
             },
             {
                 path: '/login',
