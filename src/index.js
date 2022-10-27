@@ -5,17 +5,20 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Toaster } from 'react-hot-toast';
 import AuthProvider from './context/AuthProvider';
+import ThemeProvider from './context/ThemeProvider';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <AuthProvider>
+      <ThemeProvider>
       <Toaster
         position="top-center"
         reverseOrder={false}
       />
       <App />
+      </ThemeProvider>
     </AuthProvider>
   </React.StrictMode>
 );

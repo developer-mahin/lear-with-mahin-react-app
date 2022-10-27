@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaSun, FaUserAlt, FaMoon } from "react-icons/fa";
+import { FaSun, FaMoon } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
+import Switch from "react-switch";
+import { ThemeContext } from "../../context/ThemeProvider";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logOutSystem } = useContext(AuthContext);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   const handleLogOut = () => {
     logOutSystem();
@@ -83,18 +86,16 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <div className="flex items-center gap-1">
-                <FaSun className="cursor-pointer" />
-                <div className="form-control">
-                  <label className="label cursor-pointer">
-                    <input
-                      type="checkbox"
-                      className="toggle toggle-dark"
-                      checked
-                    />
-                  </label>
+              <div className=" flex items-center gap-1">
+                <FaSun className="cursor-pointer text-xl" />
+                <div>
+                  <Switch
+                    onChange={toggleTheme}
+                    checked={!theme}
+                    className="mt-1"
+                  ></Switch>
                 </div>
-                <FaMoon className="cursor-pointer"></FaMoon>
+                <FaMoon className="cursor-pointer text-xl"></FaMoon>
               </div>
             </li>
           </ul>
@@ -269,18 +270,16 @@ const Header = () => {
                       </li>
 
                       <li>
-                        <div className="flex items-center gap-1">
-                          <FaSun className="cursor-pointer" />
-                          <div className="form-control">
-                            <label className="label cursor-pointer">
-                              <input
-                                type="checkbox"
-                                className="toggle toggle-dark"
-                                checked
-                              />
-                            </label>
+                        <div className=" flex items-center gap-1">
+                          <FaSun className="cursor-pointer text-xl" />
+                          <div>
+                            <Switch
+                              onChange={toggleTheme}
+                              checked={!theme}
+                              className="mt-1"
+                            ></Switch>
                           </div>
-                          <FaMoon className="cursor-pointer"></FaMoon>
+                          <FaMoon className="cursor-pointer text-xl"></FaMoon>
                         </div>
                       </li>
 

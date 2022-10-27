@@ -38,7 +38,7 @@ const Home = () => {
           <div className="flex items-center">
             <Link
               to="/courses"
-              className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
+              className="inline-flex text-black items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
             >
               Check Our Courses
             </Link>

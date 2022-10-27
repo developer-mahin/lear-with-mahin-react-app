@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import ReactToPdf from "react-to-pdf";
 import {
   FaDownload,
   FaUserTie,
@@ -8,6 +7,8 @@ import {
   FaVideo,
   FaClock,
 } from "react-icons/fa";
+
+import Pdf from "react-to-pdf";
 
 const CourseDetails = () => {
   const coursesId = useLoaderData();
@@ -27,11 +28,11 @@ const CourseDetails = () => {
   return (
     <div className="py-8 container mx-auto">
       <div className=" p-2 grid lg:grid-cols-4 gap-5">
-        <div className="col-span-3 shadow-xl border w-full">
+        <div ref={ref} className="col-span-3 shadow-xl border w-full">
           <div className=" mb-4 rounded-full bg-indigo-50">
             <img className="w-full" src={picture} alt="" />
           </div>
-          <div className="p-4">
+          <div className="p-4 px-5">
             <h6 className="mb-4 text-2xl font-semibold leading-5">{title}</h6>
             <p className="text-gray-700">{description}</p>
           </div>
@@ -93,7 +94,7 @@ const CourseDetails = () => {
                 </Link>
               </div>
               <div>
-                <ReactToPdf targetRef={ref} filename="div-blue.pdf">
+                <Pdf targetRef={ref} filename="code-example.pdf">
                   {({ toPdf }) => (
                     <button
                       className="btn btn-outline btn-success my-1 w-full"
@@ -102,11 +103,7 @@ const CourseDetails = () => {
                       Download PDF <FaDownload></FaDownload>
                     </button>
                   )}
-                </ReactToPdf>
-                <div ref={ref}>
-                    <h3 className="invisible">{title} Hello</h3>
-                    <img className="invisible" src={picture} alt="" />
-                </div>
+                </Pdf>
               </div>
             </div>
           </div>

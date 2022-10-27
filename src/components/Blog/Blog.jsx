@@ -4,7 +4,7 @@ const Blog = () => {
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="grid gap-5 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
-        <div className="overflow-hidden transition-shadow duration-300 bg-white rounded border-2">
+        <div className="overflow-hidden transition-shadow duration-300 rounded border-2">
           <img
             src="https://nordicapis.com/wp-content/uploads/What-is-CORS-.png?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260"
             className="object-cover w-full h-64 rounded"
@@ -35,7 +35,7 @@ const Blog = () => {
             </p>
           </div>
         </div>
-        <div className="overflow-hidden transition-shadow duration-300 bg-white rounded border-2">
+        <div className="overflow-hidden transition-shadow duration-300 rounded border-2">
           <img
             src="https://www.nbnminds.com/wp-content/uploads/2019/03/is-Firebase-right-for-my-app.png?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
             className="object-cover w-full h-64 rounded"
@@ -65,7 +65,7 @@ const Blog = () => {
             </p>
           </div>
         </div>
-        <div className="overflow-hidden transition-shadow duration-300 bg-white rounded border-2">
+        <div className="overflow-hidden transition-shadow duration-300 rounded border-2">
           <img
             src="https://miro.medium.com/max/1400/0*uPdUx0n3GLndmHRQ.jpg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
             className="object-cover w-full h-64 rounded"
@@ -87,7 +87,7 @@ const Blog = () => {
             </p>
           </div>
         </div>
-        <div className="overflow-hidden transition-shadow duration-300 bg-white rounded border-2">
+        <div className="overflow-hidden transition-shadow duration-300 rounded border-2">
           <img
             src="https://miro.medium.com/max/747/1*ptvSdUknyEbemXJOh9wNiw.png?"
             className="w-full h-64 rounded"
