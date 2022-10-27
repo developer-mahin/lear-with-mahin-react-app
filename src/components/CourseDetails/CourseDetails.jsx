@@ -77,7 +77,9 @@ const CourseDetails = () => {
                   <FaClock className="text-xl"></FaClock>
                 </div>
                 <div className="">
-                  <p className="font-medium">Video Duration: {videos_duration}</p>
+                  <p className="font-medium">
+                    Video Duration: {videos_duration}
+                  </p>
                 </div>
               </div>
             </div>
@@ -97,7 +99,7 @@ const CourseDetails = () => {
                       className="btn btn-outline btn-success my-1 w-full"
                       onClick={toPdf}
                     >
-                      Generate pdf <FaDownload></FaDownload>
+                      Download PDF <FaDownload></FaDownload>
                     </button>
                   )}
                 </ReactToPdf>
