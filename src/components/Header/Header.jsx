@@ -83,17 +83,19 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link
-                aria-label="About us"
-                title="About us"
-                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-              ></Link>
-            </li>
-            <li>
-              <p className="flex gap-1">
+              <div className="flex items-center gap-1">
                 <FaSun className="cursor-pointer" />
+                <div className="form-control">
+                  <label className="label cursor-pointer">
+                    <input
+                      type="checkbox"
+                      className="toggle toggle-dark"
+                      checked
+                    />
+                  </label>
+                </div>
                 <FaMoon className="cursor-pointer"></FaMoon>
-              </p>
+              </div>
             </li>
           </ul>
           <ul className="flex items-center hidden space-x-8 lg:flex">
@@ -128,6 +130,7 @@ const Header = () => {
                 </>
               )}
             </li>
+
             <li>
               {user?.uid ? (
                 <>
@@ -143,8 +146,6 @@ const Header = () => {
               ) : (
                 <>
                   <Link>
-                    {/* <FaUserAlt></FaUserAlt>
-                     */}
                     <img
                       src="https://cdn.pixabay.com/photo/2016/11/18/23/38/child-1837375__340.png"
                       className="w-10 h-10 rounded-full"
@@ -265,6 +266,22 @@ const Header = () => {
                         >
                           FAQ
                         </Link>
+                      </li>
+
+                      <li>
+                        <div className="flex items-center gap-1">
+                          <FaSun className="cursor-pointer" />
+                          <div className="form-control">
+                            <label className="label cursor-pointer">
+                              <input
+                                type="checkbox"
+                                className="toggle toggle-dark"
+                                checked
+                              />
+                            </label>
+                          </div>
+                          <FaMoon className="cursor-pointer"></FaMoon>
+                        </div>
                       </li>
 
                       <div className="flex justify-between items-center">

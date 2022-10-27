@@ -104,10 +104,8 @@ const CourseDetails = () => {
                   )}
                 </ReactToPdf>
                 <div ref={ref}>
-                  <div>
                     <h3 className="invisible">{title} Hello</h3>
                     <img className="invisible" src={picture} alt="" />
-                  </div>
                 </div>
               </div>
             </div>
