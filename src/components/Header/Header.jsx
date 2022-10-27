@@ -21,8 +21,6 @@ const Header = () => {
         <div className="relative flex items-center justify-between">
           <Link
             to="/"
-            aria-label="Company"
-            title="Company"
             className="inline-flex items-center"
           >
             <svg
@@ -48,8 +46,6 @@ const Header = () => {
             <li>
               <Link
                 to="/home"
-                aria-label="Our product"
-                title="Our product"
                 className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 Home
@@ -58,8 +54,6 @@ const Header = () => {
             <li>
               <Link
                 to="/courses"
-                aria-label="Our product"
-                title="Our product"
                 className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 Courses
@@ -68,8 +62,6 @@ const Header = () => {
             <li>
               <Link
                 to="/blog"
-                aria-label="Product pricing"
-                title="Product pricing"
                 className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 Blog
@@ -78,8 +70,6 @@ const Header = () => {
             <li>
               <Link
                 to="/faq"
-                aria-label="About us"
-                title="About us"
                 className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 FAQ
@@ -115,16 +105,12 @@ const Header = () => {
                   <Link
                     to="/login"
                     className="inline-flex items-center justify-center py-2 px-6 font-medium tracking-wide transition duration-200 shadow-md bg-cyan-500 hover:bg-cyan-600 rounded-full focus:shadow-outline focus:outline-none mr-1"
-                    aria-label="Sign up"
-                    title="Sign up"
                   >
                     Login
                   </Link>
                   <Link
                     to="/register"
                     className="inline-flex items-center justify-center py-2 px-6 font-medium tracking-wide transition duration-200 rounded-full shadow-md  bg-cyan-500 hover:bg-cyan-600 focus:shadow-outline focus:outline-none ml-3"
-                    aria-label="Sign up"
-                    title="Sign up"
                   >
                     Register
                   </Link>
@@ -186,8 +172,6 @@ const Header = () => {
                     <div>
                       <Link
                         to="/"
-                        aria-label="Company"
-                        title="Company"
                         className="inline-flex items-center"
                       >
                         <svg
@@ -231,8 +215,6 @@ const Header = () => {
                       <li>
                         <Link
                           to="/home"
-                          aria-label="Our product"
-                          title="Our product"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
                           Home
@@ -241,8 +223,6 @@ const Header = () => {
                       <li>
                         <Link
                           to="/courses"
-                          aria-label="Our product"
-                          title="Our product"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
                           Courses
@@ -251,8 +231,6 @@ const Header = () => {
                       <li>
                         <Link
                           to="/blog"
-                          aria-label="Product pricing"
-                          title="Product pricing"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
                           Blog
@@ -261,8 +239,6 @@ const Header = () => {
                       <li>
                         <Link
                           to="/faq"
-                          aria-label="About us"
-                          title="About us"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
                           FAQ
@@ -299,16 +275,12 @@ const Header = () => {
                               <Link
                                 to="/login"
                                 className="inline-flex items-center justify-center py-2 px-6 font-medium tracking-wide bg-teal-500 hover:bg-teal-700 rounded-full transition duration-200 shadow-md focus:shadow-outline focus:outline-none"
-                                aria-label="Sign up"
-                                title="Sign up"
                               >
                                 Login
                               </Link>
                               <Link
                                 to="/register"
                                 className="inline-flex items-center justify-center py-2 bg-teal-500 hover:bg-teal-700 mt-2 px-6 font-medium tracking-wide transition duration-200 rounded-full shadow-md focus:shadow-outline focus:outline-none"
-                                aria-label="Sign up"
-                                title="Sign up"
                               >
                                 Register
                               </Link>
