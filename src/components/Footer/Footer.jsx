@@ -19,7 +19,7 @@ const Footer = () => {
             <Link to="/login">Login</Link>
           </li>
           <li>
-            <Link to="/">Contact</Link>
+            <Link to="/faq">FAQ</Link>
           </li>
         </ul>
         <div className="flex flex-col justify-center pt-6 lg:pt-0">

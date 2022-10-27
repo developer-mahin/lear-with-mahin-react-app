@@ -26,7 +26,7 @@ You have to create a website to provide a quality learning platform in the domai
  
 1. If you reload the protected/private route (after login), this page will not redirect the user to the login page. Instead, it will keep the logged-in user on the protected route. (✅)
 
-1. Use the Environment variable to hide the firebase key.
+1. Use the Environment variable to hide the firebase key. (✅)
 
 ### Bonus: 
 1. Minimum 12 meaningful git commits on the client-side repository and minimum of 5 meaningful commits on the server-side repository. (✅)

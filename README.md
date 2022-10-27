@@ -1,4 +1,11 @@
-# Getting Started with Create React App
+# Getting Started with my course selling react-app
+### Website name: 
+* Learn with mahin
+* Live url ([https://learn-with-mahin.web.app/])
+
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
