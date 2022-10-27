@@ -104,7 +104,7 @@ const Register = () => {
               Name
             </span>
             <input
-              className="form-input w-full border-2 rounded py-1 px-2"
+              className="form-input w-full border-2 rounded py-1 px-2 text-black"
               type="text"
               name="name"
               placeholder="Your full name"
@@ -116,7 +116,7 @@ const Register = () => {
               PhotoURL
             </span>
             <input
-              className="form-input w-full border-2 rounded py-1 px-2"
+              className="form-input w-full border-2 rounded py-1 px-2 text-black"
               type="text"
               name="photoURL"
               placeholder="Drop your photoURL"
@@ -128,7 +128,7 @@ const Register = () => {
               Your Email
             </span>
             <input
-              className="form-input w-full border-2 rounded py-1 px-2"
+              className="form-input w-full border-2 rounded py-1 px-2 text-black"
               type="email"
               name="email"
               placeholder="Ex. james@bond.com"
@@ -140,7 +140,7 @@ const Register = () => {
               Create a password
             </span>
             <input
-              className="form-input w-full border-2 rounded py-1 px-2"
+              className="form-input w-full border-2 rounded py-1 px-2 text-black"
               type="password"
               name="password"
               placeholder="••••••••"

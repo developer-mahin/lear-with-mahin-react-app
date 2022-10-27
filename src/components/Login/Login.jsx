@@ -72,7 +72,7 @@ const Login = () => {
                 Your Email
               </span>
               <input
-                className="form-input w-full border-2 rounded py-1 px-2"
+                className="form-input w-full border-2 rounded py-1 px-2 text-black"
                 type="email"
                 placeholder="Please enter email"
                 name="email"
@@ -84,7 +84,7 @@ const Login = () => {
                 Your Password
               </span>
               <input
-                className="form-input w-full border-2 rounded py-1 px-2"
+                className="form-input w-full border-2 rounded py-1 px-2 text-black"
                 type="password"
                 name="password"
                 placeholder="••••••••"
