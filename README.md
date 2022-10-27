@@ -9,6 +9,10 @@
 * React
 * React Router
 * React Context API
+
+## For The Back-end
+* Node.js
+* Express.js
 ### For styles
 * Tailwind CSS
 ### Components library
