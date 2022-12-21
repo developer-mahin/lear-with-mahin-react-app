@@ -19,10 +19,7 @@ const Header = () => {
     <div className="border-b-2">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
-          <Link
-            to="/"
-            className="inline-flex items-center"
-          >
+          <Link to="/" className="inline-flex items-center">
             <svg
               className="w-8 text-deep-purple-accent-400"
               viewBox="0 0 24 24"
@@ -126,7 +123,7 @@ const Header = () => {
                       title={user?.displayName}
                       className="w-9 h-9 rounded-full"
                       src={user?.photoURL}
-                      alt=""
+                      alt="not found"
                     />
                   </Link>
                 </>
@@ -170,10 +167,7 @@ const Header = () => {
                 <div className="p-5 bg-white border rounded shadow-sm">
                   <div className="flex items-center justify-between mb-4">
                     <div>
-                      <Link
-                        to="/"
-                        className="inline-flex items-center"
-                      >
+                      <Link to="/" className="inline-flex items-center">
                         <svg
                           className="w-8 text-deep-purple-accent-400"
                           viewBox="0 0 24 24"
