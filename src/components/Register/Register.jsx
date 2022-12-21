@@ -1,16 +1,17 @@
 import React from "react";
 import { useContext } from "react";
 import { FaGithub } from "react-icons/fa";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import toast from "react-hot-toast";
 import { useState } from "react";
+import useTitle from "../../Hooks/useTitle";
 
 const Register = () => {
+  useTitle("Register");
   const { createAccount, updateNameAndPhoto, googleSignIn, gitHubSignIn } =
     useContext(AuthContext);
   const [error, setError] = useState("");
-
 
   // Register with email and password
   const handleRegister = (e) => {
@@ -24,7 +25,7 @@ const Register = () => {
     createAccount(email, password)
       .then((result) => {
         const user = result.user;
-        // update username and photo 
+        // update username and photo
         updateNameAndPhoto(name, photoURL);
         toast.success("Successfully registered!");
         form.reset();
@@ -44,7 +45,7 @@ const Register = () => {
     googleSignIn()
       .then((result) => {
         const user = result.currentUser;
-        setError("")
+        setError("");
       })
       .catch((error) => {
         setError(error.message);
@@ -56,7 +57,7 @@ const Register = () => {
     gitHubSignIn()
       .then((result) => {
         const user = result.currentUser;
-        setError("")
+        setError("");
       })
       .catch((error) => {
         setError(error.message);
@@ -86,7 +87,10 @@ const Register = () => {
             </svg>
             Continue with Google
           </Link>
-          <Link onClick={handleGitHubSignIn} className="w-full py-3 btn btn-icon btn-dark">
+          <Link
+            onClick={handleGitHubSignIn}
+            className="w-full py-3 btn btn-icon btn-dark"
+          >
             <FaGithub className="mx-1 text-xl"></FaGithub>
             Continue with GitHub
           </Link>

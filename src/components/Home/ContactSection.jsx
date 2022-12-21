@@ -1,22 +1,15 @@
 import React from "react";
 import { toast } from "react-hot-toast";
+import contactLottie from "../../assets/lottie/contact-lottie.json";
+import Lottie from "lottie-react";
 
 const ContactSection = () => {
-  const contactBg = {
-    backgroundImage: `url(${"https://i.ibb.co/mHzzbVH/63590800-learning-concept-glowing-student-icon-in-grunge-dark-room-with-dirty-floor-black-background.webp"})`,
-    width: "100%",
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    padding: "71px 0px",
-  };
-
   const handleContact = (event) => {
     event.preventDefault();
     toast.success("Successfully submit");
   };
   return (
-    <div className="lg:pt-20 pt-6">
+    <div className="lg:py-20 py-6 ">
       <div className="text-center">
         <div className="">
           <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-400">
@@ -27,8 +20,11 @@ const ContactSection = () => {
           Stay connected with us
         </h2>
       </div>
-      <div style={contactBg}>
-        <div className="lg:w-1/3 w-full mx-auto px-3 lg:px-0">
+      <div className="">
+        <div className="container mx-auto grid lg:grid-cols-2 grid-cols-1 gap-6 items-center">
+          <div>
+            <Lottie animationData={contactLottie} loop={true} />
+          </div>
           <form onSubmit={handleContact}>
             <input
               className="w-full  py-3 px-6 rounded-xl my-4 border-2"

@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 
 import Pdf from "react-to-pdf";
+import useTitle from "../../Hooks/useTitle";
 
 const CourseDetails = () => {
   const coursesId = useLoaderData();
@@ -24,6 +25,8 @@ const CourseDetails = () => {
     video,
     videos_duration,
   } = coursesId;
+
+  useTitle(`${title}`)
 
   return (
     <div className="py-8 container mx-auto">

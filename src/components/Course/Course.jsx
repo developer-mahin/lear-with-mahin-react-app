@@ -1,10 +1,11 @@
 import React from "react";
 import { Link, useLoaderData, useNavigation } from "react-router-dom";
+import useTitle from "../../Hooks/useTitle";
 import SingleCourse from "../singleCourse/SingleCourse";
 
 const Course = () => {
   const courses = useLoaderData();
-
+  useTitle("Courses")
   const navigation = useNavigation();
   if (navigation.state === "loading") {
     return (

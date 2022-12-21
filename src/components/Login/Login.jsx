@@ -5,8 +5,10 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import toast from "react-hot-toast";
 import { useState } from "react";
+import useTitle from "../../Hooks/useTitle";
 
 const Login = () => {
+  useTitle("Login")
   const { loginSystem, googleSignIn, gitHubSignIn } = useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate  = useNavigate()
