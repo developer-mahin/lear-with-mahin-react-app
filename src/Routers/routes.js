@@ -44,7 +44,8 @@ const router = createBrowserRouter([
                 loader: ({ params }) => {
                     return fetch(`https://learn-with-mahin-server.vercel.app/getPremium/${params.id}`)
                 },
-                element: <PrivateRoutes><GetPremium></GetPremium></PrivateRoutes>
+                // element: <PrivateRoutes><GetPremium></GetPremium></PrivateRoutes>
+                element: <GetPremium></GetPremium>
             },
             {
                 path: '/login',
